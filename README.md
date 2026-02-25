@@ -1,7 +1,7 @@
 AryanBlock Programming Language
 text
 if youre wondering why its jumbled up i dont know why it shuld be correct
-but in the terminal itll be fine 
+but in the terminal itll be fine go to the code section to see it correctly right next to preview
 
 ok to start
 run in terminal cd path/to/your/file/aryanblock
@@ -579,6 +579,7 @@ text
 ║  Start REPL:                                           ║
 ║    python src/main.py repl                             ║
 ╚════════════════════════════════════════════════════════╝
+
 
 
 

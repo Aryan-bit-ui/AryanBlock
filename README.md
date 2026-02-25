@@ -11,6 +11,12 @@ if its a succes
 run ab repl
 or python src\main.py repl
 
+i want you guys to make the best by updating it making it better 
+adding more functions and all
+it took fout months to build this
+
+hopefully it reaches the right person
+aryan from qatar only 12 years old
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
 ║     █████╗ ██████╗ ██╗   ██╗ █████╗ ███╗   ██╗           ║
@@ -537,4 +543,5 @@ text
 ║  Start REPL:                                           ║
 ║    python src/main.py repl                             ║
 ╚════════════════════════════════════════════════════════╝
+
 

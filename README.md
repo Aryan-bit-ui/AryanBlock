@@ -1,5 +1,15 @@
 AryanBlock Programming Language
 text
+if youre wondering why its jumbled up i dont know why it shuld be correct
+but in the terminal itll be fine 
+
+ok to start
+run in terminal cd path/to/your/file/aryanblock
+copy that 
+then in terminal run python create_all.py
+if its a succes
+run ab repl
+or python src\main.py repl
 
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
@@ -527,3 +537,4 @@ text
 ║  Start REPL:                                           ║
 ║    python src/main.py repl                             ║
 ╚════════════════════════════════════════════════════════╝
+

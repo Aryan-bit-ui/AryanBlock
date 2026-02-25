@@ -13,10 +13,13 @@ or python src\main.py repl
 
 i want you guys to make the best by updating it making it better 
 adding more functions and all
-it took fout months to build this
+it took four months to build this
 
-hopefully it reaches the right person
-aryan from qatar only 12 years old
+some functions like :ls
+:pwd does not work because i dont understand it
+
+hopefully it reaches the right person made only by one person no team only passion to code
+follow me on instagram @aryan_devstack
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
 ║     █████╗ ██████╗ ██╗   ██╗ █████╗ ███╗   ██╗           ║
@@ -543,5 +546,6 @@ text
 ║  Start REPL:                                           ║
 ║    python src/main.py repl                             ║
 ╚════════════════════════════════════════════════════════╝
+
 
 

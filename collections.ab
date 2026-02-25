@@ -1,0 +1,131 @@
+/// AryanBlock Standard Library: Collections
+/// Advanced collection operations
+
+export func first(arr: array<any>) -> any? {
+    if len(arr) == 0 {
+        return null
+    }
+    return arr[0]
+}
+
+export func last(arr: array<any>) -> any? {
+    if len(arr) == 0 {
+        return null
+    }
+    return arr[len(arr) - 1]
+}
+
+export func take(arr: array<any>, n: int) -> array<any> {
+    if n >= len(arr) {
+        return arr
+    }
+    return slice(arr, 0, n)
+}
+
+export func drop(arr: array<any>, n: int) -> array<any> {
+    if n >= len(arr) {
+        return []
+    }
+    return slice(arr, n)
+}
+
+export func flatten(arr: array<array<any>>) -> array<any> {
+    mut result = []
+    for inner in arr {
+        for item in inner {
+            push(result, item)
+        }
+    }
+    return result
+}
+
+export func zip(arr1: array<any>, arr2: array<any>) -> array<tuple<any, any>> {
+    mut result = []
+    let length = min(len(arr1), len(arr2))
+    
+    for i in 0..length {
+        push(result, (arr1[i], arr2[i]))
+    }
+    
+    return result
+}
+
+export func enumerate(arr: array<any>) -> array<tuple<int, any>> {
+    mut result = []
+    for i in 0..len(arr) {
+        push(result, (i, arr[i]))
+    }
+    return result
+}
+
+export func unique(arr: array<any>) -> array<any> {
+    mut seen = []
+    mut result = []
+    
+    for item in arr {
+        if not contains(seen, item) {
+            push(seen, item)
+            push(result, item)
+        }
+    }
+    
+    return result
+}
+
+export func count_by(arr: array<any>, value: any) -> int {
+    mut count = 0
+    for item in arr {
+        if item == value {
+            count += 1
+        }
+    }
+    return count
+}
+
+export func group_by(arr: array<any>, key_func: func(any) -> any) -> map<any, array<any>> {
+    mut result = {}
+    
+    for item in arr {
+        let key = key_func(item)
+        if not contains(keys(result), key) {
+            result[key] = []
+        }
+        push(result[key], item)
+    }
+    
+    return result
+}
+
+export func partition(arr: array<any>, predicate: func(any) -> bool) -> tuple<array<any>, array<any>> {
+    mut passing = []
+    mut failing = []
+    
+    for item in arr {
+        if predicate(item) {
+            push(passing, item)
+        } else {
+            push(failing, item)
+        }
+    }
+    
+    return (passing, failing)
+}
+
+export func chunk(arr: array<any>, size: int) -> array<array<any>> {
+    mut result = []
+    mut current = []
+    
+    for item in arr {
+        push(current, item)
+        if len(current) == size {
+            push(result, current)
+            current = []
+        }
+    }
+    
+    if len(current) > 0 {
+        push(result, current)
+    }
+    
+    return result
+}

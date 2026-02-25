@@ -1,0 +1,36 @@
+/// AryanBlock Standard Library: I/O
+/// File and console I/O operations
+
+export func println(value: any) {
+    print(value)
+}
+
+export func prompt(message: string) -> string {
+    return input(message)
+}
+
+export func read_lines(path: string) -> array<string> {
+    let content = read_file(path)
+    return split(content, "\n")
+}
+
+export func write_lines(path: string, lines: array<string>) {
+    let content = join(lines, "\n")
+    write_file(path, content)
+}
+
+export func append_line(path: string, line: string) {
+    append_file(path, line + "\n")
+}
+
+export func read_json(path: string) -> map<string, any> {
+    let content = read_file(path)
+    // Note: Full JSON parsing would require more complex implementation
+    // This is a placeholder
+    return {}
+}
+
+export func write_json(path: string, data: map<string, any>) {
+    // Note: Full JSON serialization would require more complex implementation
+    write_file(path, str(data))
+}

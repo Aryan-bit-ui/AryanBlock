@@ -1,0 +1,115 @@
+/// AryanBlock Sample Program
+/// File: example.ab
+
+// Constants
+const MAX_STUDENTS = 100
+
+// Trait definition
+trait Describable {
+    func describe() -> string
+}
+
+// Class definition
+class Student implements Describable {
+    let name: string
+    mut grade: float
+    mut courses: array<string>
+    
+    init(name: string, grade: float) {
+        self.name = name
+        self.grade = grade
+        self.courses = []
+    }
+    
+    func describe() -> string {
+        return "${self.name} - Grade: ${self.grade}"
+    }
+    
+    func addCourse(course: string) {
+        push(self.courses, course)
+    }
+    
+    func isPassing() -> bool {
+        return self.grade >= 60.0
+    }
+}
+
+// Block for utility functions
+block StudentUtils {
+    func average(students: array<Student>) -> float {
+        mut total = 0.0
+        for s in students {
+            total += s.grade
+        }
+        return total / len(students)
+    }
+    
+    func topStudent(students: array<Student>) -> Student? {
+        if len(students) == 0 { 
+            return null 
+        }
+        mut best = students[0]
+        for s in students {
+            if s.grade > best.grade {
+                best = s
+            }
+        }
+        return best
+    }
+    
+    func passingStudents(students: array<Student>) -> array<Student> {
+        mut passing = []
+        for s in students {
+            if s.isPassing() {
+                push(passing, s)
+            }
+        }
+        return passing
+    }
+}
+
+// Main entry point
+start {
+    let students = [
+        Student("Aryan", 95.5),
+        Student("Priya", 88.0),
+        Student("Rahul", 72.3),
+        Student("Sneha", 91.7),
+        Student("Vikram", 55.0)
+    ]
+    
+    print("=== Student Report ===")
+    print("")
+    
+    for student in students {
+        print(student.describe())
+        if student.isPassing() {
+            print("  Status: PASSING ✓")
+        } else {
+            print("  Status: FAILING ✗")
+        }
+    }
+    
+    print("")
+    
+    let avg = StudentUtils.average(students)
+    print("Class Average: ${avg}")
+    
+    let top = StudentUtils.topStudent(students)
+    match top {
+        null => print("No students found"),
+        _ => print("Top Student: ${top.name} with grade ${top.grade}")
+    }
+    
+    print("")
+    
+    // Get passing students
+    let passing = StudentUtils.passingStudents(students)
+    print("Passing students (${len(passing)}/${len(students)}):")
+    for s in passing {
+        print("  - ${s.name}")
+    }
+    
+    print("")
+    print("=== End Report ===")
+}

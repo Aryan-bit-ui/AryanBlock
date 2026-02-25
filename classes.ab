@@ -1,0 +1,138 @@
+/// Class Examples in AryanBlock
+/// Demonstrates OOP features
+
+// Simple trait
+trait Describable {
+    func describe() -> string
+}
+
+trait Movable {
+    func move(dx: float, dy: float)
+}
+
+// Base class
+class Shape implements Describable {
+    let name: string
+    mut x: float
+    mut y: float
+    
+    init(name: string, x: float = 0.0, y: float = 0.0) {
+        self.name = name
+        self.x = x
+        self.y = y
+    }
+    
+    func describe() -> string {
+        return "${self.name} at (${self.x}, ${self.y})"
+    }
+    
+    func move(dx: float, dy: float) {
+        self.x += dx
+        self.y += dy
+    }
+}
+
+// Derived class with additional properties
+class Circle extends Shape {
+    let radius: float
+    
+    init(x: float, y: float, radius: float) {
+        super.init("Circle", x, y)
+        self.radius = radius
+    }
+    
+    func area() -> float {
+        return PI * self.radius ** 2
+    }
+    
+    func circumference() -> float {
+        return 2 * PI * self.radius
+    }
+    
+    func describe() -> string {
+        return "Circle at (${self.x}, ${self.y}) with radius ${self.radius}"
+    }
+}
+
+class Rectangle extends Shape {
+    let width: float
+    let height: float
+    
+    init(x: float, y: float, width: float, height: float) {
+        super.init("Rectangle", x, y)
+        self.width = width
+        self.height = height
+    }
+    
+    func area() -> float {
+        return self.width * self.height
+    }
+    
+    func perimeter() -> float {
+        return 2 * (self.width + self.height)
+    }
+    
+    func describe() -> string {
+        return "Rectangle at (${self.x}, ${self.y}), ${self.width}x${self.height}"
+    }
+    
+    func is_square() -> bool {
+        return self.width == self.height
+    }
+}
+
+// Utility block for shape operations
+block ShapeUtils {
+    func total_area(shapes: array<Shape>) -> float {
+        mut total = 0.0
+        for shape in shapes {
+            // Duck typing - call area if it exists
+            total += shape.area()
+        }
+        return total
+    }
+    
+    func describe_all(shapes: array<Shape>) {
+        for shape in shapes {
+            print("  - " + shape.describe())
+        }
+    }
+}
+
+start {
+    print("=== Shape Examples ===")
+    print("")
+    
+    // Create shapes
+    let circle = Circle(0.0, 0.0, 5.0)
+    let rect = Rectangle(10.0, 10.0, 4.0, 6.0)
+    let square = Rectangle(5.0, 5.0, 3.0, 3.0)
+    
+    // Describe shapes
+    print("Shapes:")
+    print("  " + circle.describe())
+    print("  " + rect.describe())
+    print("  " + square.describe())
+    print("")
+    
+    // Calculate areas
+    print("Circle area: ${circle.area()}")
+    print("Circle circumference: ${circle.circumference()}")
+    print("")
+    print("Rectangle area: ${rect.area()}")
+    print("Rectangle perimeter: ${rect.perimeter()}")
+    print("")
+    
+    // Check if square
+    print("Is rect a square? ${rect.is_square()}")
+    print("Is square a square? ${square.is_square()}")
+    print("")
+    
+    // Move shapes
+    print("Moving circle by (5, 5)...")
+    circle.move(5.0, 5.0)
+    print("  " + circle.describe())
+    
+    print("")
+    print("=== Done ===")
+}

@@ -1,0 +1,14 @@
+// Hello World in AryanBlock
+
+start {
+    print("Hello, AryanBlock!")
+    
+    let name = "World"
+    print("Hello, ${name}!")
+    
+    mut counter = 0
+    loop 5 {
+        counter += 1
+        print("Count: ${counter}")
+    }
+}

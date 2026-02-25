@@ -1,0 +1,114 @@
+/// AryanBlock Standard Library: String
+/// String manipulation functions
+
+export func reverse(s: string) -> string {
+    let chars = split(s, "")
+    mut result = ""
+    mut i = len(chars) - 1
+    
+    while i >= 0 {
+        result = result + chars[i]
+        i -= 1
+    }
+    
+    return result
+}
+
+export func repeat(s: string, times: int) -> string {
+    mut result = ""
+    loop times {
+        result = result + s
+    }
+    return result
+}
+
+export func pad_left(s: string, width: int, char: string = " ") -> string {
+    let padding = width - len(s)
+    if padding <= 0 {
+        return s
+    }
+    return repeat(char, padding) + s
+}
+
+export func pad_right(s: string, width: int, char: string = " ") -> string {
+    let padding = width - len(s)
+    if padding <= 0 {
+        return s
+    }
+    return s + repeat(char, padding)
+}
+
+export func center(s: string, width: int, char: string = " ") -> string {
+    let padding = width - len(s)
+    if padding <= 0 {
+        return s
+    }
+    let left = padding / 2
+    let right = padding - left
+    return repeat(char, left) + s + repeat(char, right)
+}
+
+export func count(s: string, sub: string) -> int {
+    mut count = 0
+    mut pos = 0
+    let parts = split(s, sub)
+    return len(parts) - 1
+}
+
+export func is_empty(s: string) -> bool {
+    return len(s) == 0
+}
+
+export func is_blank(s: string) -> bool {
+    return len(trim(s)) == 0
+}
+
+export func is_digit(s: string) -> bool {
+    if len(s) == 0 {
+        return false
+    }
+    let digits = "0123456789"
+    for c in split(s, "") {
+        if not contains(digits, c) {
+            return false
+        }
+    }
+    return true
+}
+
+export func is_alpha(s: string) -> bool {
+    if len(s) == 0 {
+        return false
+    }
+    let alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for c in split(s, "") {
+        if not contains(alpha, c) {
+            return false
+        }
+    }
+    return true
+}
+
+export func capitalize(s: string) -> string {
+    if len(s) == 0 {
+        return s
+    }
+    return upper(char_at(s, 0)) + lower(substring(s, 1))
+}
+
+export func title(s: string) -> string {
+    let words = split(s, " ")
+    mut result = []
+    for word in words {
+        push(result, capitalize(word))
+    }
+    return join(result, " ")
+}
+
+export func words(s: string) -> array<string> {
+    return split(trim(s), " ")
+}
+
+export func lines(s: string) -> array<string> {
+    return split(s, "\n")
+}

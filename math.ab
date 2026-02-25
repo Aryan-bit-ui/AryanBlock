@@ -1,0 +1,112 @@
+/// AryanBlock Standard Library: Math
+/// Mathematical functions and constants
+
+// Constants are defined in Python builtins
+// PI, E, TAU, INF, NAN
+
+export func abs(x: float) -> float {
+    if x < 0 {
+        return -x
+    }
+    return x
+}
+
+export func pow(base: float, exp: float) -> float {
+    return base ** exp
+}
+
+export func square(n: float) -> float {
+    return n * n
+}
+
+export func cube(n: float) -> float {
+    return n * n * n
+}
+
+export func clamp(value: float, min_val: float, max_val: float) -> float {
+    if value < min_val {
+        return min_val
+    }
+    if value > max_val {
+        return max_val
+    }
+    return value
+}
+
+export func is_even(n: int) -> bool {
+    return n % 2 == 0
+}
+
+export func is_odd(n: int) -> bool {
+    return n % 2 != 0
+}
+
+export func factorial(n: int) -> int {
+    if n <= 1 {
+        return 1
+    }
+    return n * factorial(n - 1)
+}
+
+export func fibonacci(n: int) -> int {
+    if n <= 0 {
+        return 0
+    }
+    if n == 1 {
+        return 1
+    }
+    
+    mut a = 0
+    mut b = 1
+    
+    for i in 2..n+1 {
+        let temp = a + b
+        a = b
+        b = temp
+    }
+    
+    return b
+}
+
+export func gcd(a: int, b: int) -> int {
+    while b != 0 {
+        let temp = b
+        b = a % b
+        a = temp
+    }
+    return a
+}
+
+export func lcm(a: int, b: int) -> int {
+    return (a * b) / gcd(a, b)
+}
+
+export func is_prime(n: int) -> bool {
+    if n < 2 {
+        return false
+    }
+    if n == 2 {
+        return true
+    }
+    if n % 2 == 0 {
+        return false
+    }
+    
+    mut i = 3
+    while i * i <= n {
+        if n % i == 0 {
+            return false
+        }
+        i += 2
+    }
+    
+    return true
+}
+
+export func deg_to_rad(degrees: float) -> float {
+    return degrees * PI / 180.0
+}
+
+export func rad_to_deg(radians: float) -> float {
+    return radians * 180.0 / PI
+}

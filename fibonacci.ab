@@ -1,0 +1,70 @@
+/// Fibonacci Sequence in AryanBlock
+/// Demonstrates functions, loops, and recursion
+
+// Recursive implementation
+func fib_recursive(n: int) -> int {
+    if n <= 1 {
+        return n
+    }
+    return fib_recursive(n - 1) + fib_recursive(n - 2)
+}
+
+// Iterative implementation (more efficient)
+func fib_iterative(n: int) -> int {
+    if n <= 1 {
+        return n
+    }
+    
+    mut a = 0
+    mut b = 1
+    
+    for i in 2..n+1 {
+        let temp = a + b
+        a = b
+        b = temp
+    }
+    
+    return b
+}
+
+// Generate fibonacci sequence as array
+func fib_sequence(count: int) -> array<int> {
+    mut result = []
+    
+    for i in 0..count {
+        push(result, fib_iterative(i))
+    }
+    
+    return result
+}
+
+start {
+    print("=== Fibonacci Sequence ===")
+    print("")
+    
+    // Using recursive (slow for large numbers)
+    print("Recursive (first 10):")
+    for i in 0..10 {
+        let f = fib_recursive(i)
+        print("  fib(${i}) = ${f}")
+    }
+    
+    print("")
+    
+    // Using iterative (fast)
+    print("Iterative (first 20):")
+    let sequence = fib_sequence(20)
+    print("  ${sequence}")
+    
+    print("")
+    
+    // Using pipe operator
+    print("Even fibonacci numbers:")
+    let evens = sequence
+        |> filter(n => n % 2 == 0)
+        |> filter(n => n > 0)
+    print("  ${evens}")
+    
+    print("")
+    print("Sum of first 20: ${sum(sequence)}")
+}

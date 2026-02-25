@@ -1,0 +1,24 @@
+// Greeting program
+
+start {
+    print("╔════════════════════════════╗")
+    print("║      Welcome Program       ║")
+    print("╚════════════════════════════╝")
+    print("")
+    
+    let name = input("Enter your name: ")
+    let age = int(input("Enter your age: "))
+    
+    print("")
+    print("Hello, " + name + "!")
+    print("You are ${age} years old.")
+    
+    if age >= 18 {
+        print("You are an adult.")
+    } else {
+        print("You are a minor.")
+    }
+    
+    let fav_num = int(input("Enter your favorite number: "))
+    print("${fav_num} x 2 = ${fav_num * 2}")
+}

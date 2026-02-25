@@ -12,14 +12,47 @@ run ab repl
 or python src\main.py repl
 
 i want you guys to make the best by updating it making it better 
-adding more functions and all
+adding more functions and 
 it took four months to build this
+
+aryanblock/
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── lexer.py
+│   ├── tokens.py
+│   ├── parser.py
+│   ├── ast_nodes.py
+│   ├── analyzer.py
+│   ├── interpreter.py
+│   ├── environment.py
+│   ├── errors.py
+│   ├── repl.py
+│   └── builtins.py
+├── stdlib/
+│   ├── math.ab
+│   ├── string.ab
+│   ├── io.ab
+│   └── collections.ab
+├── examples/
+│   ├── hello.ab
+│   ├── fibonacci.ab
+│   ├── classes.ab
+│   └── example.ab
+├── tests/
+│   ├── test_lexer.py
+│   ├── test_parser.py
+│   └── test_interpreter.py
+├── README.md
+├── setup.py make sure your file islike this
+
 
 some functions like :ls
 :pwd does not work because i dont understand it
 
 hopefully it reaches the right person made only by one person no team only passion to code
 follow me on instagram @aryan_devstack
+
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
 ║     █████╗ ██████╗ ██╗   ██╗ █████╗ ███╗   ██╗           ║
@@ -546,6 +579,7 @@ text
 ║  Start REPL:                                           ║
 ║    python src/main.py repl                             ║
 ╚════════════════════════════════════════════════════════╝
+
 
 
 
